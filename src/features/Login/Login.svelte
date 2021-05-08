@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { auth } from '../../firebase'
+  import { auth } from '@/firebase'
 
   let loggedIn = false
 
@@ -8,7 +8,9 @@
       loggedIn = false
       return
     }
-    console.log({ user })
+    console.log({
+      user,
+    })
     loggedIn = true
   })
 
@@ -19,8 +21,11 @@
 <main>
   You're {loggedIn ? 'logged in' : 'logged out'}
   {#if !loggedIn}
-    <button on:click|preventDefault={login}>Log in</button>
+    <button class="btn btn-green" on:click|preventDefault={login}>Log in</button
+    >
   {:else}
-    <button on:click|preventDefault={logout}>Log out</button>
+    <button class="btn btn-green" on:click|preventDefault={logout}
+      >Log out</button
+    >
   {/if}
 </main>

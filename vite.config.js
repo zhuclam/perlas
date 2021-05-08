@@ -1,16 +1,20 @@
 import { defineConfig } from 'vite'
 import svelte from '@sveltejs/vite-plugin-svelte'
-import alias from '@rollup/plugin-alias'
-
-const aliases = alias({
-  resolve: ['.svelte', '.js', '.ts'],
-  entries: [
-    { find: 'firebase-auth', replacement: 'src/firebase.ts' },
-    { find: '@/features', replacement: 'src/features' },
-  ],
-})
+import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte(), aliases],
+  resolve: {
+    alias: [
+      {
+        find: '@/firebase',
+        replacement: path.resolve(__dirname, 'src', 'firebase.ts'),
+      },
+      { find: '@', replacement: path.resolve(__dirname, 'src') },
+    ],
+    optimizeDeps: {
+      include: ['javascript-time-ago/locale/es'],
+    },
+  },
+  plugins: [svelte()],
 })

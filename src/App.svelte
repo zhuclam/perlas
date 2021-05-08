@@ -1,19 +1,17 @@
 <script lang="ts">
-  //import { Router, Link, Route } from 'svelte-routing'
-  // import { auth } from './firebase'
-  // import Login from '@/features/Login/Login.svelte'
+  import { Router, Link, Route } from 'svelte-routing'
+  import Login from '@/features/Login/Login.svelte'
 </script>
 
-<!-- <Router>
+<Router>
   <nav>
     <Link to="/login">Login</Link>
   </nav>
-  <main>
+  <main class="shadow-md">
     <Route path="/"><Login /></Route>
     dadasd
   </main>
-</Router> -->
-<main><span>sdadasd</span></main>
+</Router>
 
 <style>
   :root {
